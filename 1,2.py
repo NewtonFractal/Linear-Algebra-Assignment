@@ -14,7 +14,6 @@ def optimize(array):
     return objective
 
 
-optimize([0,0])
 
 optimization = fmin(optimize,parameters,xtol=0.001)
 
