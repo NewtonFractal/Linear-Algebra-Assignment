@@ -11,7 +11,7 @@ A_Transpose = numpy.array([[1,1,2,2],
                            [1,2,1,2],
                            [2,1,1,1]])
 
-for a in range(1,1000,20):
+for a in range(-2001,2001,20):
     a = a/100
     norm_list_x.append(a)
     y = numpy.array([1, a, 1, a])
