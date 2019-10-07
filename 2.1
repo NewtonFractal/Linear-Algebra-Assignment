@@ -1,0 +1,12 @@
+
+
+def recursive():
+    norm = 0
+    a_n_1,b_n_1,c_n_1 = 8,3,12
+    a_n,b_n,c_n = 41,24,37
+    while norm < 100:
+        a_n, a_n_1, b_n, b_n_1, c_n, c_n_1 = a_n_1 , a_n + 3*b_n + 2*c_n , b_n_1 , -3*a_n + 4*b_n + 3*c_n,c_n_1,2*a_n+3*b_n+c_n
+        norm += 1
+        
+
+recursive()
