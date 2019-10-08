@@ -1,24 +1,38 @@
+import matplotlib.pyplot as plt
+
 import numpy as np
+from scipy.optimize import fmin
+norm_list_y = []
+norm_list_x = []
+for x in range(1,1000,5):
+    x= x/100
+    norm_list_x.append(x)
+for a in range(1,1000,5):
+    a = a/100
+    Argument = np.array([0, 0, 0])
+    y_transpose = np.array([[1],
+                           [a],
+                           [1],
+                           [a]])
 
-A = np.array([[1, 3,  2],
-              [-3, 4, 3],
-              [2, 3,  1]])
+    def optimize(parameters):
+        x1, x2, x3 = parameters[0], parameters[1], parameters[2]
+        x = [x1, x2, x3]
+        A = np.array([[1, 1, 2],
+                      [1, 2, 1],
+                      [2, 1, 1],
+                      [2, 2, 1]])
+        objective = np.abs((A @ x) - y_transpose)
+        norm = np.linalg.norm(objective)
+        return norm
 
-def recursive():
-    a_n_1,a_n, b_n_1,b_n, c_n_1,c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0,40):
-        a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
-    vector = [a_n,b_n,c_n]
-    limit = vector/np.linalg.norm(vector)
-    print(limit)
-    Step_1 = np.matmul(vector,A)
-    q_n  = np.matmul(Step_1,vector)
-    print(q_n)
-    a_n_1,a_n, b_n_1,b_n, c_n_1,c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0,40):
-        a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
-        vector = [a_n, b_n, c_n]
-        if np.linalg.norm(vector - limit) < 10**(-8):
-            print(x)
 
-recursive()
+    optimization = fmin(optimize, Argument, xtol=0.001)
+    print(optimization)
+    norm_list_y.append(np.linalg.norm(optimization))
+
+print(norm_list_y)
+plt.plot(norm_list_x,norm_list_y)
+plt.ylabel('norm')
+plt.xlabel('parameter value')
+plt.show()
