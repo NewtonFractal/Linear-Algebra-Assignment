@@ -11,8 +11,7 @@ def recursive():
     vector = [a_n,b_n,c_n]
     limit = vector/np.linalg.norm(vector)
     print(limit)
-    Step_1 = np.matmul(vector,A)
-    q_n  = np.matmul(Step_1,vector)
+    q_n = np.matmul(np.matmul(vector,A),vector)
     print(q_n)
     a_n_1,a_n, b_n_1,b_n, c_n_1,c_n = 8, 41, 3, 24, 12, 37
     for x in range(0,40):
