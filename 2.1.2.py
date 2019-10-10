@@ -10,7 +10,6 @@ def recursive():
     for x in range(0, 40):
         a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
     vector = [a_n, b_n, c_n]
-    limit = vector / np.linalg.norm(vector)
     q_n = np.matmul(np.matmul(vector, A), vector)
     print(q_n)
 
