@@ -20,24 +20,23 @@ recursive()
 
 def recursive_2():
     a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0, 150):
+    for x in range(0, 500):
         a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
     vector = np.array([a_n, b_n, c_n])
     normed = ((a_n ** 2) + (b_n ** 2) + (c_n ** 2)) ** (1 / 2)
     limit = vector / normed
     print(limit)
     a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0, 150):
+    for x in range(0, 500):
         a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
         vector = np.array([a_n, b_n, c_n])
         normed = ((a_n ** 2) + (b_n ** 2) + (c_n ** 2)) ** (1 / 2)
         limit_2 = vector / normed
         epsilon = 10 ** (-8)
-        print(limit_2)
         diff = np.linalg.norm(limit - limit_2)
-        print(diff)
         if diff < epsilon:
             print(x)
+            print(diff)
             break
 
 
@@ -45,23 +44,22 @@ recursive_2()
 
 def recursive_3():
     a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0, 250):
+    for x in range(0, 500):
         a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
     vector = np.array([a_n, b_n, c_n])
     normed = ((a_n ** 2) + (b_n ** 2) + (c_n ** 2)) ** (1 / 2)
     limit = vector / normed
     print(limit)
     a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = 8, 41, 3, 24, 12, 37
-    for x in range(0, 250):
+    for x in range(0, 500):
         a_n_1, a_n, b_n_1, b_n, c_n_1, c_n = a_n, a_n_1 + 3 * b_n_1 + 2 * c_n_1, b_n, -3 * a_n_1 + 4 * b_n_1 + 3 * c_n_1, c_n, 2 * a_n_1 + 3 * b_n_1 + c_n_1
         vector = np.array([a_n, b_n, c_n])
         normed = ((a_n ** 2) + (b_n ** 2) + (c_n ** 2)) ** (1 / 2)
         limit_2 = vector / normed
         epsilon = 10 ** (-16)
-        print(limit_2)
         diff = np.linalg.norm(limit - limit_2)
-        print(diff)
         if diff < epsilon:
+            print(diff)
             print(x)
             break
 
