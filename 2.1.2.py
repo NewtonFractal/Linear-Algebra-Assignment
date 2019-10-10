@@ -41,7 +41,7 @@ def recursive():
         epsilon_values_2.append(abs(4 - q_n_2))
         if abs(4 - q_n_2) < 10**(-16):
             print(x)
-            break
+            return None
 
 recursive()
 
